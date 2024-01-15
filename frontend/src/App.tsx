@@ -1,5 +1,5 @@
 import './App.css'
-import ToDoItem from './components/ToDoItem'
+// import ToDoItem from './components/ToDoItem'
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <h1>!To Do App!</h1>
-      <ToDoItem {...toDoItem} />
+      {/* <ToDoItem {...toDoItem} /> */}
     </>
   )
 }
