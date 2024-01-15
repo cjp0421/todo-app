@@ -1,0 +1,1 @@
+console.log("Hello, Typescript with Node.js here!")
