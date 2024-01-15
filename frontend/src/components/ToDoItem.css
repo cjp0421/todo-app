@@ -1,0 +1,6 @@
+.toDoItem {
+    border: 1px dotted red;
+    width: 75%;
+    margin: 10px auto;
+    padding: 40px;
+}

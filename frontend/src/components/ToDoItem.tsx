@@ -1,28 +1,59 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import './ToDoItem.css'
+import { Avatar, Card, Checkbox, FormControlLabel, FormGroup, IconButton } from '@mui/material';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import { blueGrey, red } from '@mui/material/colors';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
+interface ToDoItemProps {
+    id: number;
+    text: string;
+    completed: boolean;
+    important: boolean;
+    onToggle: () => void;
+}
 
-
-export default function ToDoItem({ text, completed, important }) {
-    const [textState, setTextState] = useState(text);
-    const [importantState, setImportantState] = useState(important);
-
-    useEffect(() => {
-        setTextState(`${text} ${new Date().toLocaleDateString()}`)
-        setImportantState(importantState)
-    }, [importantState])
-
+const ToDoItem: React.FC<ToDoItemProps> = ({ id, text, completed, important, onToggle }) => {
 
 
     return (
         <>
-            <div>
-                <h1>Hiya from ToDoItem!</h1>
-                <div className={completed ? "completed" : ""} onClick={() => {
 
-                    setTextState("You clicked?")
-                    setImportantState(!importantState)
-                }}>{importantState ? "*" : ""}{textState}</div>
+            <div className="toDoItem">
+                <Card raised variant="outlined">
+
+                    <CardHeader
+                        avatar={
+                            <Avatar sx={{ bgcolor: blueGrey[500] }} aria-label="To Do Item">
+                                {id}
+                            </Avatar>
+                        }
+                        action={
+                            <IconButton aria-label="settings">
+                                <MoreVertIcon />
+                            </IconButton>
+                        }
+                        title="To Do Item"
+                        subheader="September 14, 2016"
+                    />
+                    {text}
+
+                    <FormGroup>
+                        <div>
+                            {completed ? <FormControlLabel control={<Checkbox defaultChecked />} label="Completed?" /> : <FormControlLabel control={<Checkbox />} label="Completed?" />}
+                            {important ? <FormControlLabel control={<Checkbox defaultChecked />} label="Important?" /> : <FormControlLabel control={<Checkbox />} label="Important?" />}
+                        </div>
+                    </FormGroup>
+
+                </Card>
+
+
+
             </div>
         </>
     );
 }
+
+export default ToDoItem;

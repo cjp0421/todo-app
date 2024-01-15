@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
-import { render } from "@testing-library/react"
+import { getByRole, render, screen } from "@testing-library/react"
 import App from "../App"
+
 
 describe('Practice tests', () => {
     test('demo', () => {
@@ -11,6 +12,13 @@ describe('Practice tests', () => {
         render(<App />)
         expect(true).toBeTruthy()
     })
+
+    test("Finds an h1", () => {
+        render(<App />)
+        const headerOne = screen.getByRole('header')
+        expect(headerOne).toBeInTheDocument()
+    })
+
 })
 
 
