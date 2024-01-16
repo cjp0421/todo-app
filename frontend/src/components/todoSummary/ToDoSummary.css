@@ -14,7 +14,7 @@
 
 .boxOfSummaryBoxes {
     display: inline-flex;
-    padding: 5px;
+    padding: 2%;
     margin: 0 auto;
     text-align: center;
     justify-items: center;
@@ -23,7 +23,7 @@
 
 h2 {
     text-align: center;
-    padding: 5px;
+    padding: 2%;
 }
 
 .box {

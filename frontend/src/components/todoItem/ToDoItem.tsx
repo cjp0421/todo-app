@@ -22,7 +22,7 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ id, text, completed, important, onT
         <>
 
             <div className="toDoItem">
-                <Card raised variant="outlined">
+                <Card raised >
 
                     <CardHeader
                         avatar={
@@ -42,8 +42,8 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ id, text, completed, important, onT
 
                     <FormGroup>
                         <div>
-                            {completed ? <FormControlLabel control={<Checkbox defaultChecked />} label="Completed?" /> : <FormControlLabel control={<Checkbox />} label="Completed?" />}
-                            {important ? <FormControlLabel control={<Checkbox defaultChecked />} label="Important?" /> : <FormControlLabel control={<Checkbox />} label="Important?" />}
+                            {completed ? <FormControlLabel control={<Checkbox defaultChecked role="checkbox" />} label="Completed?" /> : <FormControlLabel control={<Checkbox role="checkbox" />} label="Completed?" />}
+                            {important ? <FormControlLabel control={<Checkbox defaultChecked role="checkbox" />} label="Important?" /> : <FormControlLabel control={<Checkbox role="checkbox" />} label="Important?" />}
                         </div>
                     </FormGroup>
 
