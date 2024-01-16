@@ -1,12 +1,15 @@
 Container {
   height: 100vh;
   padding: 0px;
-
 }
 
 h1 {
   color: purple;
+}
+
+.heading {
   border: 5px solid red;
+  text-align: center;
 }
 
 .shoebox {
