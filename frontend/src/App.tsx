@@ -1,7 +1,7 @@
 import './App.css'
 import CssBaseline from '@mui/material/CssBaseline';
 import { Button, Container } from '@mui/material'
-import ToDoItem from './components/ToDoItem'
+import ToDoItem from './components/todoItem/ToDoItem'
 
 function App() {
 
