@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './ToDoItem.css'
-import { Avatar, Card, Checkbox, FormControlLabel, FormGroup, IconButton, Typography } from '@mui/material';
+import { Avatar, Button, Card, Checkbox, FormControlLabel, FormGroup, IconButton, Typography } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import { blueGrey, red } from '@mui/material/colors';
@@ -10,9 +10,18 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const ToDoItem: React.FC = () => {
     const [completed, setCompleted] = useState(false);
+    const [label, setLabel] = useState("CODE!");
+    const [editing, setEditing] = useState(false);
+
+    const handleEditClick = () => {
+        setEditing(!editing)
+    }
+
     const handleCheckboxChange = () => {
         setCompleted(!completed)
     }
+
+    const handleUpdateLabel = (e) => setLabel(e.target.value)
 
     return (
         <>
@@ -37,12 +46,22 @@ const ToDoItem: React.FC = () => {
                     <FormGroup>
                         <label htmlFor='checkbox'>
                             <div>
+
                                 <input type="checkbox" id="checkbox" checked={completed} onChange={handleCheckboxChange} />
-                                {completed === false ? <span> CODE!</span> : <span><Typography sx={{
-                                    textDecoration: 'line-through'
-                                }}> CODE!</Typography></span>}
+
+                                {editing ? (<input type="text" value={label} onChange={handleUpdateLabel} />) : (
+                                    completed === false ? <span>{label}</span> : <span><Typography sx={{
+                                        textDecoration: 'line-through'
+                                    }}>{label}</Typography></span>)
+                                }
+
+
+
+
+
                             </div>
                         </label>
+                        <Button onClick={handleEditClick}>{editing ? "Save" : "Edit"}</Button>
                     </FormGroup>
 
                 </Card>
