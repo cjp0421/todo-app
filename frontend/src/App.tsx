@@ -7,13 +7,7 @@ import ToDoSummary from './components/todoSummary/ToDoSummary';
 function App() {
 
 
-  const toDoItem = {
-    id: 1,
-    text: "CODE!",
-    completed: false,
-    important: true,
-    onToggle: true
-  }
+
 
   return (
     <CssBaseline>
@@ -26,7 +20,7 @@ function App() {
 
           <ToDoSummary />
           <div className='shoebox'>👠</div>
-          <ToDoItem id={toDoItem.id} text={toDoItem.text} completed={toDoItem.completed} important={toDoItem.important} onToggle={() => toDoItem.onToggle} />
+          <ToDoItem />
 
         </div>
 

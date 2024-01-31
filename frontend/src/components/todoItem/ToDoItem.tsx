@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import './ToDoItem.css'
-import { Avatar, Card, Checkbox, FormControlLabel, FormGroup, IconButton } from '@mui/material';
+import { Avatar, Card, Checkbox, FormControlLabel, FormGroup, IconButton, Typography } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import { blueGrey, red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-interface ToDoItemProps {
-    id: number;
-    text: string;
-    completed: boolean;
-    important: boolean;
-    onToggle: () => void;
-}
 
-const ToDoItem: React.FC<ToDoItemProps> = ({ id, text, completed, important, onToggle }) => {
-
+const ToDoItem: React.FC = () => {
+    const [completed, setCompleted] = useState(false);
+    const handleCheckboxChange = () => {
+        setCompleted(!completed)
+    }
 
     return (
         <>
@@ -27,7 +23,7 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ id, text, completed, important, onT
                     <CardHeader
                         avatar={
                             <Avatar sx={{ bgcolor: blueGrey[500] }} aria-label="To Do Item">
-                                {id}
+
                             </Avatar>
                         }
                         action={
@@ -38,13 +34,15 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ id, text, completed, important, onT
                         title="To Do Item"
                         subheader="September 14, 2016"
                     />
-                    {text}
-
                     <FormGroup>
-                        <div>
-                            {completed ? <FormControlLabel control={<Checkbox defaultChecked role="checkbox" />} label="Completed?" /> : <FormControlLabel control={<Checkbox role="checkbox" />} label="Completed?" />}
-                            {important ? <FormControlLabel control={<Checkbox defaultChecked role="checkbox" />} label="Important?" /> : <FormControlLabel control={<Checkbox role="checkbox" />} label="Important?" />}
-                        </div>
+                        <label htmlFor='checkbox'>
+                            <div>
+                                <input type="checkbox" id="checkbox" checked={completed} onChange={handleCheckboxChange} />
+                                {completed === false ? <span> CODE!</span> : <span><Typography sx={{
+                                    textDecoration: 'line-through'
+                                }}> CODE!</Typography></span>}
+                            </div>
+                        </label>
                     </FormGroup>
 
                 </Card>
