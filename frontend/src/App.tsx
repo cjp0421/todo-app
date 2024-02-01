@@ -1,8 +1,9 @@
 import './App.css'
 import CssBaseline from '@mui/material/CssBaseline';
 import { Container } from '@mui/material'
-import ToDoItem from './components/todoItem/ToDoItem'
+// import ToDoItem from './components/todoItem/ToDoItem'
 import ToDoSummary from './components/todoSummary/ToDoSummary';
+import ToDoList from './components/todoList/ToDoList';
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
 
           <ToDoSummary />
           <div className='shoebox'>👠</div>
-          <ToDoItem />
+          <ToDoList />
 
         </div>
 
