@@ -1,10 +1,8 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './ToDoItem.css'
-import { Avatar, Button, ButtonGroup, Card, Checkbox, FormControlLabel, FormGroup, IconButton, Typography } from '@mui/material';
-import CardContent from '@mui/material/CardContent';
+import { Avatar, Button, ButtonGroup, Card, FormGroup, IconButton, Typography } from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
-import { blueGrey, red } from '@mui/material/colors';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { blueGrey } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 type ToDoProps = {
@@ -18,8 +16,6 @@ type ToDoProps = {
 }
 
 const ToDoItem: React.FC<ToDoProps> = ({ todo, handleUpdateTodo, handleDeleteTodo }) => {
-
-    // const [completed, setCompleted] = useState(false);
     const [editing, setEditing] = useState(false);
 
     const handleEditClick = () => {
