@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, FormEventHandler, HTMLInputTypeAttribute, useState } from 'react'
 import './ToDoItem.css'
 import { Avatar, Button, ButtonGroup, Card, FormGroup, IconButton, Typography } from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
 import { blueGrey } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-type ToDoProps = {
+interface ToDoProps {
     todo: {
         id: number,
         label: string,
         completed: boolean
     },
-    handleUpdateTodo: (e) => void,
-    handleDeleteTodo: (id) => void
+    handleUpdateTodo: ({ }) => void,
+    handleDeleteTodo: (id: number) => void
 }
 
 const ToDoItem: React.FC<ToDoProps> = ({ todo, handleUpdateTodo, handleDeleteTodo }) => {
@@ -33,10 +33,7 @@ const ToDoItem: React.FC<ToDoProps> = ({ todo, handleUpdateTodo, handleDeleteTod
         handleDeleteTodo(todo.id)
     }
 
-    const handleUpdateLabel = (e) => {
-        //this makes a copy and then sets the label property on that copy to the new value
-        //this is necessary because whenever you update state
-        //the value you pass REPLACES the current state - partial updates don't merge with previous state!
+    const handleUpdateLabel = (e: ChangeEvent<HTMLInputElement>) => {
         handleUpdateTodo({
             ...todo,
             label: e.target.value

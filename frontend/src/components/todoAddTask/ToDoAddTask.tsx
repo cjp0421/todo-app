@@ -3,15 +3,21 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import FormGroup from "@mui/material/FormGroup";
-import { useState } from "react";
+import React, { ChangeEvent } from "react";
+import { FC, useState } from "react";
 
 
-export default function todoAddTask({ todos, handleAddTodo }) {
+interface TodoAddTaskProps {
+    todos: [],
+    handleAddTodo: ({ }) => void,
+}
+
+const TodoAddTask: React.FC<TodoAddTaskProps> = ({ todos, handleAddTodo }) => {
     const [label, setLabel] = useState("")
-    const handleUpdateLabel = (e) => setLabel(e.target.value)
+    const handleUpdateLabel = (e: ChangeEvent<HTMLInputElement>) => setLabel(e.target.value)
 
     //this function would typically be on the server
-    function createTodo(label) {
+    function createTodo(label: string) {
         return {
             id: todos.length + 1,
             label,
@@ -58,3 +64,5 @@ export default function todoAddTask({ todos, handleAddTodo }) {
         </Card>
     )
 }
+
+export default TodoAddTask;

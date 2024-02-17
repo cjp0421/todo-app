@@ -28,7 +28,7 @@ export default function ToDoList() {
         setTodos(newTodoList)
     }
 
-    const handleDeleteTodo = (id) => {
+    const handleDeleteTodo = (id: number) => {
         const newTodos = todos.filter((todo) => todo.id !== id)
         setTodos(newTodos)
     }
