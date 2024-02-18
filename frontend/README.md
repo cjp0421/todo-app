@@ -11,3 +11,11 @@ https://www.lambdatest.com/blog/material-ui-testing/
 https://mui.com/material-ui/react-css-baseline/
 
 https://mui.com/material-ui/api/card/
+
+https://tutorialedge.net/golang/creating-restful-api-with-golang/
+
+https://dev.to/femi_dev/how-to-use-axios-with-react-5fom
+
+https://www.youtube.com/watch?v=ZEKBDXGnD4s
+
+https://www.dhiwise.com/post/building-scalable-web-applications-with-react-and-golang
